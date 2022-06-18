@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/enterdauser.css' %}">
+    <link rel="icon" type="image/x-icon" href="{%static 'pics/eco-light.png'%}">
+    <script src="https://kit.fontawesome.com/e51cd7c7df.js" crossorigin="anonymous"></script>
+    <title>singn up</title>
+
+        <style>
+            #emaill{
+                color: blueviolet;
+            }
+        </style>        
+
+</head>
+<body>
+
+
+    <div>
+        <ul id="toppp">
+          <li id="topli"><a id="active" class="active" href="/homey">Home</a></li>
+          <li id="topli"><a href="/allproduct">Products</a></li>
+          <li id="topli"><a href="#contact">Contact</a></li>
+          <li id="topli"><a href="/practice">About</a></li>
+          
+          {% if request.user.is_authenticated %}
+          
+          
+
+                    <li id="topli" style="float:right" >
+                      <a  href="/profile">
+                        <i id="fa1" class="fa-solid fa-user"></i>
+                      </a>
+                    </li>
+
+                    <li id="topli" style="float:right" >
+                      <a  href="#about">
+                        <i id="fa1"  class="fa-solid fa-cart-shopping">
+                          <span class="badge">12</span>
+                        </i>
+                      </a>
+                    </li>
+          {% else %}
+                  <li id="topli" style="float:right" ><a href="/accounts/login">Login</a></li>
+                  <li id="topli" style="float:right" ><a href="/sinup">Register</a></li>
+          {% endif %}        
+        </ul>
+      </div>
+
+      <div class="headdd">
+          <p> Customer Registration </p>
+      </div>
+        <div class="lineid"><hr></div>
+            
+                
+                    <div id="formcont">
+
+                        {%if otp%}
+
+                                        <form id="mainform" action="" method="post" novalidate class="shadow-lg p-3 mb-5 border border-warning rounded-3">
+                                          {% csrf_token %}    
+                                              <h3>Verify Your E-mail</h3>
+
+                                              <input type="hidden" name="usrr" value="{{usrr.username}}">
+                                              <div class="input-group mb-3">
+                                                <div class="input-group-prepend">
+                                                  <span class="input-group-text" id="basic-addon1">OTP</span>
+                                                </div>
+                                                <input type="text" class="form-control" placeholder="Enter your OTP" aria-label="OTP" aria-describedby="basic-addon1" name="otp">
+                                              </div>
+                                            <button type="submit" class="btn btn-primary">Verify</button>
+                                            <p> <i id="resendotpmess">Resend</i>  OTP</p>
+                                            
+                                            
+
+                                            {%if messages%}
+                                                  {%for m in messages%}
+                                                          <p style="font-family: Antic;font-size: 30px;" {% if m.tags %} class="alert alert-{{m.tags}} mb-5" {% endif %}> {{m}} </p>
+                                                  {%endfor%}
+
+                                            {%endif%}
+                                        </form>
+
+                                        
+
+                        {%else%}
+
+
+                            <form id="mainform" action="" method="post" novalidate class="shadow-lg p-3 mb-5 border border-warning rounded-3">
+                              
+                              {%if messages%}
+                                  {%for m in messages%}
+                                          <p style="font-family: Antic;font-size: 20px;" {% if m.tags %} class="alert alert-{{m.tags}} mb-5" {% endif %}> {{m}} </p>
+                                  {%endfor%}
+
+                              {%endif%}
+
+                              {% csrf_token %}
+                                {% for f in form %}
+
+                                    
+                                        {{f.label_tag}} <br> {{f}}
+                                        <small class="text-danger"> {{f.errors|striptags}}  </small>
+                                    
+                                        
+                                {% endfor %}
+                                <br>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                                
+                                
+                            </form>
+                        {%endif%}      
+                            
+                    </div>
+                    
+                    
+                    <div id="neww" >
+                        <h1 class="newwh1"><span>Already have ?</span></h1><br>
+                    </div>
+
+                    <div class="sigin">
+                        <a href="/accounts/login"> Sign  in to  Rcube </a>
+                    </div>
+
+<!--Footer starts-->
+                    <div id="div2" class="container-fluid">
+        
+                        <div class="row">
+                          <div class="col">
+                            <p><b>Locate us:</b></p>
+                            <p>183, Tower-B,Infinite tech park<br> Electronic city, 
+                              Jammu<br> 180006 <br>or <br> 
+                              <a href="#"><i id='fafoot' class="fa-solid  fa-location-dot"></i></a></p>
+                          
+                          </div>
+                          <div class="col">
+                            <b>Work with us:</b>
+                           <p><a href="#"><i id='fafoot' class="fa-solid fa-briefcase"></i> </a>  View Jobs
+                           </p>
+                          <p style="font-size: 12px;">Copyright © XLR8 Coders All rights reserved.</p>
+                          </div>
+                          <div class="col">
+                            <p style="font-size:15px;"><b>Follow us:</b></p>
+                            <a href="#"><i id='fafoot' class="fa-brands fa-instagram "></i></a>
+                            <a href="#"><i id='fafoot' class="fa-brands fa-facebook-f"></i></a>
+                            <a href="#"><i id='fafoot' class="fa-brands fa-twitter"></i></a>
+                            <a href="#"><i id='fafoot' class="fa-brands fa-youtube"></i></a>
+                            <a href="#"><i id='fafoot' class="fa-brands fa-tumblr"></i></a>
+                          </div>
+                          
+                        </div>
+                          
+                      </div>
+                    
+<!--Footer starts-->
+</body> 
+</html>

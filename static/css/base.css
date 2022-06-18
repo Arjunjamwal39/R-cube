@@ -1,0 +1,101 @@
+.logoo{
+    height: 180px;
+    width: 200px;
+    margin-top: 20px;
+    margin-left: 550px;
+  }
+
+ul {
+    
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgb(150, 95, 95);
+    box-shadow: 0px 10px 8px rgb(179, 176, 176);
+    top: 0;
+    width: 100%;
+}
+  
+li {
+    float: left;
+  }
+  
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+li a:hover {
+    background-color: rgb(182, 141, 141);
+    border-radius: 5px;
+    color: white;
+  }
+
+#active{
+    background-color: rgb(177, 142, 110);
+    border-radius: 5px;
+}
+
+
+
+#fa1{
+    font-size: 18px;
+}
+
+.badge{
+    position: relative;
+    top:-13px;
+    right: 4px;
+    font-size: 11px;
+    padding: 5px 5px;
+    border-radius: 50%;
+    background-color: rgba(12, 10, 10, 0.274);
+}
+/* navbar close */
+
+
+/*body*/
+.lineid{
+    height: 12px;
+    color: black;
+    position: absolute;
+    top: 330px;
+    left: 470px;
+    right: 480px;
+}
+
+.lineid hr{
+    color: brown;
+    height: 3px;
+}
+
+
+.headdd{
+    margin-left: 580px;
+    padding-top: 20px;
+    font-size: 35px;
+    margin-top: 25px;
+    font-family: a Aksentuasi;
+    color: rgb(148, 77, 170);
+}
+/*footer starts*/
+
+#div2{
+    background-color: rgb(118, 149, 175);
+    border-radius: 3px;
+    text-align: center;
+    width: 100%;
+    margin-top: 109px;
+    
+}
+
+#fafoot{
+    font-size: 23px;
+    padding: 5px;
+    color: rgb(54, 48, 48);
+}
+/*footer ends*/

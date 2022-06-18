@@ -1,0 +1,63 @@
+
+
+#formcont{
+    margin-left: -150px;
+    margin-right: 300px;
+}
+
+.headdd{
+    margin-left: 630px;
+    font-size: 30px;
+}
+
+.lineid{
+    margin-left: 70px;
+    margin-right: -65px;
+    margin-top: -10px;
+}
+
+.vrt{
+    height: 500px;
+    width: 1.5px;
+    background-color: rgba(61, 58, 58, 0.575);
+    margin-left: 150px;
+    margin-top: -150px;
+}
+
+.userr{
+    font-family: a Aksentuasi;
+    font-weight: 800;
+    font-size: 30px;
+    margin-top: -50px;
+}
+
+.sigin{
+    border: solid 1px rgb(75, 71, 71);
+    margin-left: -10px;
+    margin-right: 450px;
+    border-radius: 5px;
+    background-color: rgba(163, 154, 29, 0.692);
+    text-align: center;
+    padding: 5px;
+    font-family: a Aksentuasi;
+    font-size: 20px;
+    box-shadow: 5px 5px 10px rgba(119, 113, 113, 0.651);
+}
+
+.sigin:hover{
+    background-color: rgb(166, 196, 196);
+}
+.sigin a{
+    text-decoration: none;
+    font-weight: 900;
+    color: black;
+}
+
+.topdivtop{
+    margin-left: 470px;
+    margin-right: 380px;
+    text-align: center;
+    font-family: a Aksentuasi;
+    font-size: 23px;
+    font-weight: 600;
+}

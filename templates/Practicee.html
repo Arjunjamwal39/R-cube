@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Practiceee {% endblock title %}
+{% block styles %}
+{{block.super}}
+
+<link rel="stylesheet" href="{% static 'css/practicee.css' %}">
+
+{% endblock styles %} 
+
+{% block heading %} Practiceee {% endblock heading %}
+
+{% block content %}
+<br><br><br>
+{{form}}
+
+
+{% endblock content %}

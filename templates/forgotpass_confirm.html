@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Confirm Forgotpass {% endblock title %}
+{% block styles %}
+{{block.super}}
+<link rel="stylesheet" href="{% static 'css/forgotpass_confirm.css' %}">
+
+{% endblock styles %} 
+
+{% block heading %} New Credentials {% endblock heading %}
+{% block content %}
+  
+<div id="formcont" >
+<form id="mainform" action="" method="post" novalidate class="shadow-lg p-3 mb-5 border border-warning rounded-3">
+                          
+        {% csrf_token %}
+        {% for f in form %}
+                <div class="form-group">  
+                        {{f.label_tag}} <br> {{f}} <small class="text-danger" style="font-size: 12px;"> {{f.errors|striptags}}  </small>
+
+                </div>
+                                        
+        {% endfor %}
+                            <br>
+        <button type="submit" class="btn btn-primary">Submit</button>
+                            
+                            
+        {% if form.non_field_errors %}
+                {% for error in form.non_field_errors %}
+
+                        <p class="alert alert-warning my-3" style="font-size: 10px;">hey!!!   {{error}}</p>
+
+                {% endfor %}
+        {% endif %}
+
+                          
+</form>
+                        
+                        
+
+</div>
+
+                    
+</form>
+
+
+{% endblock content %}

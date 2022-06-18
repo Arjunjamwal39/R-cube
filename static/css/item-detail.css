@@ -1,0 +1,122 @@
+ul {
+    
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgb(150, 95, 95);
+    box-shadow: 0px 10px 8px rgb(179, 176, 176);
+    top: 0;
+    width: 100%;
+    
+  }
+  
+li {
+    float: left;
+  }
+  
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+li a:hover {
+    background-color: rgb(182, 141, 141);
+    border-radius: 5px;
+    color: white;
+  }
+
+
+
+
+
+#fa1{
+    font-size: 18px;
+}
+
+.badge{
+    position: relative;
+    top:-13px;
+    right: 4px;
+    font-size: 11px;
+    padding: 5px 5px;
+    border-radius: 50%;
+    background-color: rgba(12, 10, 10, 0.274);
+}
+/* navbar close */
+
+#rowdet{
+    margin-top: 30px;
+    width: 1340px;
+}
+#divcol1{
+    height: 500;
+    width: 650px;
+    
+}
+
+#colimg{
+    height: 500px;
+    width: 650px;
+    border-radius: 15px;
+    padding: 5px;
+}
+
+#colimg:hover {
+    box-shadow: 0 0 10px 5px rgba(0, 186, 25, 0.5);
+  }
+
+#divcol2{
+  height: 500px;
+  width: 650px;
+  border-radius: 15px;
+  padding: 5px;
+  background: pink;
+}
+
+#divcol2:hover{
+  box-shadow: 0 0 10px 5px rgba(158, 199, 163, 0.5);
+}
+
+.colhead{
+  font-size: 38px;
+  text-align: center;
+  font-family: SF Slapstick Comic Shaded;
+}
+
+.colpara{
+  margin-top: 30px;
+  margin-left: 30px;
+  margin-right: 30px;
+  text-align: justify;
+}
+.colpri{
+  font-size: 30px;
+  margin-top: 10px;
+  margin-left:30px;
+  font-family: Shadow;
+}
+
+.colbtn{
+  margin-top: 10px;
+  margin-left: 30px;
+}
+/*footer*/
+
+#div2{
+  background-color: rgb(118, 149, 175);
+  border-radius: 3px;
+  text-align: center;
+  width: 1340px;
+}
+
+#fafoot{
+  font-size: 23px;
+  padding: 5px;
+  color: rgb(54, 48, 48);
+}
+
+/*footer ends*/

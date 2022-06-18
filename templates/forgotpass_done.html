@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Forgot pass link {% endblock title %}
+
+{% block styles %}
+{{block.super}}
+<link rel="stylesheet" href="{% static 'css/forgotpass_done.css' %}">
+
+{% endblock styles %}
+
+{% block heading %} Check your Mail {% endblock heading %}
+{% block content %}
+
+<p class="para">To reset the Password a link is send to the your mail <br> 
+</p>
+
+
+{% endblock content %}

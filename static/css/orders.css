@@ -1,0 +1,15 @@
+.loopimg{
+    height: 200px;
+    width: 200px;
+    border: solid 2px rgba(80, 70, 70, 0.61);
+    border-radius: 8px;
+}
+
+.looptext{
+    margin-left: 50px;
+}
+
+.deliveryy{
+    margin-top: 50px;
+    margin-left: 450px;
+}

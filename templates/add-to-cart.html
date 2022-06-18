@@ -1,0 +1,150 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Customer Cart {% endblock title %}
+{% block styles %}
+{{block.super}}
+
+<link rel="stylesheet" href="{% static 'css/add-to-cart.css' %}">
+
+{% endblock styles %} 
+
+{% block heading %} Your Cart {% endblock heading %}
+
+{% block content %}
+
+<div class="container-fluid mt-3">
+    <div class="row">
+        <div class="col-sm-9 p-3 bg-light text-drak">
+            <p class="carthead">Product Detials</p>
+                {% for c in cart %}
+                <hr>
+                    <div class="row">
+
+                        <div class="col-3">
+                                                
+                            <img src="{{c.product.product_image.url}}" alt="qwerty" class="cartimg">
+                        </div> 
+                        <div class="col-7">
+                            <p><b>{{c.product.title|capfirst}}</b></p>
+                            <p> <b>Discription:</b>   {{c.product.discription}}</p>
+                            
+                            <label for="quantity">Quantity:</label>
+                            <a   class="minus-cart btn" pid="{{c.product.id}}">
+                                <i style="color:black" class="fas fa-minus-square fa-lg"></i></a>
+                            
+                                <span id="quantity">{{c.quantity}}</span>
+                            
+                            <a  class="plus-cart btn" pid="{{c.product.id}}">
+                                <i style="color: black;" class="fas fa-plus-square fa-lg"></i></a>
+                            <br><br>
+                            <div class=" justify-content-between">
+                                <a href="#" class="btn btn-sm btn-secondary remove-cart" pid="{{c.product.id}}">Remove</a>
+                                <p style="float: right;"> <b>₹{{c.product.price}}</b> </p>
+                            </div>
+                            
+                                   
+                        </div>
+
+                    </div>
+                    
+                        
+                                        
+
+                                            
+                    <br>
+                {% endfor %}
+        </div>            
+
+
+    
+
+
+                    
+                    <div class="col-sm-3 p-5 bg-light">
+                        
+                            <h4 class="carthead1">Order Details</h4>
+                            <p>Amount :<span style="float: right;font-weight: 700;" id="amount">₹{{amount}}</span></p>
+                            <p>Shipping Cost: <span style="float: right;font-weight: 700;">₹120</span></p>
+                            <hr>
+                            <p> <b>Total:</b> <span style="font-size:14px;color:rgba(65, 60, 60, 0.959)">Including GST:</span> <span style="float:right;font-weight: 700;" id="total"> ₹{{total}}  </span></p>
+                            <a class="btn btn-primary btn-sm" style="width: 240px;"  href="{% url 'checkout'%}"> Place Order</a>
+
+                    </div>
+</div>            
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>-->
+<!--<script src="{% static 'js/cart.js' %}"></script>-->
+
+<script>
+
+$('.plus-cart').click(function () {
+    //console.log("Clicked on add")              //display on console
+    var id = $(this).attr("pid").toString();   // asigning pid (from html) to id
+    //console.log(id)
+    var eml = this.parentNode.children[4]
+    console.log('display:--------',eml) 
+    $.ajax({                                   //prevents the page from refreshing
+        type: "GET",
+        url: "/cartadd",
+        data: {
+            prod_id:id
+        },
+        success: function (data) {           //if ajax runs successfully then passes the data
+            //console.log(data)
+            eml.innerText = data.quantity
+            //console.log(eml.innertext)
+            document.getElementById("amount").innerText = data.amount
+            document.getElementById("total").innerText = data.total
+            
+        }
+    })
+})
+
+
+$('.minus-cart').click(function () {
+    //console.log("Clicked on add")              //display on console
+    var id = $(this).attr("pid").toString();   // asigning pid (from html) to id
+    //console.log(id)
+    var eml = this.parentNode.children[4]
+    console.log(eml) 
+    $.ajax({                                   //prevents the page from refreshing
+        type: "GET",
+        url: "/cartsubtract",
+        data: {
+            prod_id:id
+        },
+        success: function (data) {           //if ajax runs successfully then passes the data
+            //console.log(data)
+            eml.innerText = data.quantity
+            //console.log(eml.innertext)
+            document.getElementById("amount").innerText = data.amount
+            document.getElementById("total").innerText = data.total
+            
+        }
+    })
+})
+
+$('.remove-cart').click(function () {
+    var id = $(this).attr("pid").toString(); 
+    var eml = this
+    $.ajax({                                   //prevents the page from refreshing
+        type: "GET",
+        url: "/cartremove",
+        data: {
+            prod_id:id
+        },
+        success: function (data) {           //if ajax runs successfully then passes the data
+            //console.log(data)
+            eml.innerText = data.quantity
+            //console.log(eml.innertext)
+            document.getElementById("amount").innerText = data.amount
+            document.getElementById("total").innerText = data.total
+            eml.parentNode.parentNode.parentNode.remove()
+        }
+    })
+})
+
+</script>
+{% endblock content %}

@@ -1,0 +1,165 @@
+
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/entry.css' %}">
+    <link rel="icon" type="image/x-icon" href="{%static 'pics/eco-light.png'%}">
+    <script src="https://kit.fontawesome.com/e51cd7c7df.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <title>singn up</title>
+
+        <style>
+            #emaill{
+                color: blueviolet;
+            }
+
+        </style>        
+
+</head>
+<body>
+
+
+    <div>
+        <ul id="toppp">
+          <li id="topli"><a id="active" class="active" href="/homey">Home</a></li>
+          <li id="topli"><a href="/allproduct">Products</a></li>
+          <li id="topli"><a href="#contact">Contact</a></li>
+          <li id="topli"><a href="/practice">About</a></li>
+          
+
+          
+          {% if request.user.is_authenticated %}
+          
+                        <li id="topli" style="float:right" >
+                          <a  href="/profile">
+                            <i id="fa1" class="fa-solid fa-user"></i>
+                          </a>
+                        </li>
+
+                        <li id="topli" style="float:right" >
+                          <a  href="#about">
+                            <i id="fa1"  class="fa-solid fa-cart-shopping">
+                              <span class="badge">12</span>
+                            </i>
+                          </a>
+                        </li>
+
+          {% else %}
+
+                  <li id="topli" style="float:right" ><a href="/accounts/login">Login</a></li>
+                  <li id="topli" style="float:right" ><a href="/sinup">Register</a></li>
+
+          {% endif %}
+
+        </ul>
+      </div>
+
+      <div class="headdd">
+          <p> Customer Login </p>
+      </div>
+        <div class="lineid"><hr></div>
+            
+                    <div id="formcont" >
+
+                            <form id="mainform" action="" method="post" novalidate class="shadow-lg p-3 mb-5 border border-warning rounded-3">
+                              
+                                
+        
+                                {% csrf_token %}
+                                        {% for f in form %}
+
+                                                <div class="form-group">  
+
+                                                  {{f.label_tag}} <br> {{f}} <small class="text-danger" style="font-size: 12px;"> {{f.errors|striptags}}  </small>
+
+                                                </div>
+                                            
+                                                
+                                                
+                                            
+                                                
+                                        {% endfor %}
+                                <br>
+                                <button type="submit" class="btn btn-primary">Login</button>
+                                
+                                
+                              {% if form.non_field_errors %}
+                                                {% for error in form.non_field_errors %}
+
+                                                        <p class="alert alert-warning my-3" style="font-size: 10px;">hey!!!   {{error}}</p>
+
+                                                {% endfor %}
+                              {% endif %}
+
+                              
+                            </form>
+                            
+                            <div class="rem">
+                               <p> <a href="/forgotpass"> Can't Remember ? </a>  </p>
+                            </div>
+
+                          </div>
+
+                        
+    </form>
+
+  
+
+                      <div id="neww">
+                            <p class="newwh1" >  <span> New to Rcube ? </span> </p>
+                      </div>
+
+                      <div id="reg">
+                              <p>  <a href="/sinup">  Register yourself </a> </p>
+                      </div>
+
+
+                      
+
+
+
+                        
+
+<!--Footer starts-->
+                    <div id="div2" class="container-fluid">
+        
+                        <div class="row">
+                          <div class="col">
+                            <p><b>Locate us:</b></p>
+                            <p>183, Tower-B,Infinite tech park<br> Electronic city, 
+                              Jammu<br> 180006 <br>or <br> 
+                              <a href="#"><i id='fafoot' class="fa-solid  fa-location-dot"></i></a></p>
+                          
+                          </div>
+                          <div class="col">
+                            <b>Work with us:</b>
+                           <p><a href="#"><i id='fafoot' class="fa-solid fa-briefcase"></i> </a>  View Jobs
+                           </p>
+                          <p style="font-size: 12px;">Copyright © XLR8 Coders All rights reserved.</p>
+                          </div>
+                          <div class="col">
+                            <p style="font-size:15px;"><b>Follow us:</b></p>
+                            <a href="#"><i id='fafoot' class="fa-brands fa-instagram "></i></a>
+                            <a href="#"><i id='fafoot' class="fa-brands fa-facebook-f"></i></a>
+                            <a href="#"><i id='fafoot' class="fa-brands fa-twitter"></i></a>
+                            <a href="#"><i id='fafoot' class="fa-brands fa-youtube"></i></a>
+                            <a href="#"><i id='fafoot' class="fa-brands fa-tumblr"></i></a>
+                          </div>
+                          
+                        </div>
+                          
+                      </div>
+                    
+<!--Footer ends-->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+
+
+</body> 
+</html>

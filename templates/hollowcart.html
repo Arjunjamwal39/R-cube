@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Forgot pass link {% endblock title %}
+
+{% block styles %}
+{{block.super}}
+<link rel="stylesheet" href="{% static 'css/hollowcart.css' %}">
+
+{% endblock styles %}
+
+{% block heading %} Your cart is empty {% endblock heading %}
+{% block content %}
+
+<p class="para" style="font-weight: 700; margin-left:550px">Please add a product to the cart <br> 
+</p>
+
+<img src="{%static 'pics/emptycart.gif'%}" alt="" style="height: 300; width: 300px; margin-left: 520px;">
+
+
+{% endblock content %}

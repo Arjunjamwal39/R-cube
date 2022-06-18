@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Forgot password completed {% endblock title %}
+{% block styles %}
+{{block.super}}
+
+<link rel="stylesheet" href="{% static 'css/forgotpass_complete.css' %}">
+
+{% endblock styles %} 
+
+{% block heading %} Password Reset Successfull {% endblock heading %}
+
+{% block content %}
+<div class="passreset" >
+    <div class="row">
+      
+      <div clas1s="col" id="rightcol">
+                        
+                        <img src="{%static 'pics/forgot.gif'%}" alt="">
+
+      </div>
+    </div>
+
+    
+</div>
+
+<div class="rem">
+  <p> <a href="accounts/login/"> Login again </a>  </p>
+</div>
+
+
+{% endblock content %}

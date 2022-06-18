@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} User Address {% endblock title %}
+{% block styles %}
+{{block.super}}
+<link rel="stylesheet" href="{% static 'css/useraddress.css' %}">
+{% endblock styles %}
+{% block heading %}  Address {% endblock heading %}
+{% block content %}
+         
+
+<div class="container">
+    <div class="row">
+                        <div class="col">
+                            
+                        </div>
+      
+      
+        
+        
+
+    </div>
+      
+</div>
+
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-2  text-dark">
+                        <p  class="userr">{{request.user.first_name|capfirst}}</p>
+                        <div class="sigin">
+                                <a href="{% url 'profile' %}"> Profile </a>
+                        </div>
+                        <div class="sigin" style="margin-top: 15px;">
+                                <a href="{% url 'showaddd' %}"> Address </a>
+                        </div>
+                        
+                        <div class="vrt">
+
+                        </div>
+
+        </div>
+      <div class="col-sm-9 offset-sm-1 bg-light">
+        
+                            <div class="row">
+                                        {% for d in dis %}
+                                            
+                                            
+                                                <div class="col-sm-3">
+                                                        <div class="card">
+                                                            <div class="card-body">
+                                                                <h4> {{forloop.counter}} {{d.address_type}}</h4>
+                                                                <p>Name : {{d.name}}</p> 
+                                                                <p>Locality: {{d.locality}}</p>
+                                                                <p>Contact Number: {{d.Contact_number}}</p>
+                                                                <p>City: {{d.city}}</p>
+                                                                <p>Pincode: {{d.zipcode}}</p>
+                                                                <p>State: {{d.state}}</p>
+                                                            </div>
+                                                                
+                                                        </div>               
+                                                        
+                                                </div>
+                                                
+                                        {% endfor %}
+                            </div>
+          
+          
+
+      </div>
+    </div>  
+  </div>
+ 
+
+{% endblock content %}

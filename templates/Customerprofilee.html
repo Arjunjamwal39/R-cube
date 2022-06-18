@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} User Profile {% endblock title %}
+{% block styles %}
+{{block.super}}
+<link rel="stylesheet" href="{% static 'css/Customerprofilee.css' %}">
+{% endblock styles %}
+{% block heading %} Customer address Update {% endblock heading %}
+{% block content %}
+         
+
+        <div  class="topdivtop">
+
+                {%if messages%}
+                {%for m in messages%}
+                        <p  {% if m.tags %} class="alert alert-{{m.tags}} mb-5" {% endif %}> {{m}} </p>
+                {%endfor%}
+
+                {%endif%}
+
+        </div>
+                
+
+
+
+<div class="container">
+    <div class="row">
+      <div class="col-lg">
+        <p  class="userr">{{acc.first_name|capfirst}}</p>
+        <div class="sigin">
+                <a href="{% url 'profile' %}"> Profile </a>
+        </div>
+        <div class="sigin" style="margin-top: 15px;">
+                <a href="{% url 'showaddd' %}"> Address </a>
+        </div>
+
+        <div class="sigin" style="margin-top: 15px;">
+                <a href="{% url 'checkout' %}"> Checkout </a>
+        </div>
+        
+        <div class="vrt"></div>
+      </div>
+      
+      <div class="col-lg" id="rightcol">
+        
+
+        <div id="formcont" >
+            <form id="mainform" action="" method="post" novalidate class="shadow-lg p-3 mb-5 border border-warning rounded-3">
+                                      
+                    {% csrf_token %}
+                    {% for f in form %}
+                            <div class="form-group">  
+                                    {{f.label_tag}} <br> {{f}} <small class="text-danger" style="font-size: 12px;"> {{f.errors|striptags}}  </small>
+            
+                            </div>
+                                                    
+                    {% endfor %}
+                                        <br>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    
+                                        
+                                        
+                    {% if form.non_field_errors %}
+                            {% for error in form.non_field_errors %}
+            
+                                    <p class="alert alert-warning my-3" style="font-size: 10px;">hey!!!   {{error}}</p>
+            
+                            {% endfor %}
+                    {% endif %}
+
+                    
+            
+                                      
+            </form>
+
+
+      </div>
+      
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock content %}

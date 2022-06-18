@@ -1,0 +1,38 @@
+.headdd{
+    margin-left: 510px;
+}
+
+#rightcol img{
+    margin-left: 80px;
+}
+.passreset{
+    margin-left: 480px;
+    margin-top: 30px;
+}
+
+.rem{
+    border-radius: 5px;
+    position: relative;
+    text-align: center;
+    border: solid 2px rgb(61, 117, 47);
+    box-shadow: 5px 5px 20px rgba(100, 95, 95, 0.616);
+    margin-left: 470px;
+    margin-right: 470px;
+    margin-top: 70px;
+    
+}
+
+.rem a{
+    position: relative;
+    text-decoration: none;
+    font-weight: 700;
+    margin-top: 10px;
+    top: 13px;
+    font-family: a Aksentuasi;
+    font-size: 30px;
+    
+}
+
+.rem a:hover{
+color: rgb(49, 22, 22);
+}

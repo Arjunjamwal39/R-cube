@@ -1,0 +1,172 @@
+/* navbar starts */
+
+ul {
+    
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgb(150, 95, 95);
+    box-shadow: 0px 10px 8px rgb(179, 176, 176);
+    top: 0;
+    width: 100%;
+    
+  }
+  
+li {
+    float: left;
+  }
+  
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+li a:hover {
+    background-color: rgb(182, 141, 141);
+    border-radius: 5px;
+    color: white;
+  }
+
+#active{
+    background-color: rgb(177, 142, 110);
+    border-radius: 5px;
+}
+
+
+
+#fa1{
+    font-size: 18px;
+}
+
+.badge{
+    position: relative;
+    top:-13px;
+    right: 4px;
+    font-size: 11px;
+    padding: 5px 5px;
+    border-radius: 50%;
+    background-color: rgba(12, 10, 10, 0.274);
+}
+/* navbar close */
+
+.lineid{
+    height: 12px;
+    color: black;
+    position: absolute;
+    top: 130px;
+    left: 470px;
+    right: 480px;
+}
+
+.lineid hr{
+    color: brown;
+    height: 3px;
+}
+.headdd{
+    margin-left: 550px;
+    padding-top: 20px;
+    font-size: 35px;
+    margin-top: 25px;
+    font-family: a Aksentuasi;
+    color: rgb(207, 61, 122);
+}
+
+
+
+
+
+#formcont{
+    margin-top: 5px;
+    margin-left: 470px;
+    margin-right: 480px;
+    border-radius: 10px;
+}
+
+#mainform{
+    
+    font-family: Yu Gothic UI;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+
+#neww{
+        margin-left: 470px;
+        margin-right: 480px;
+        
+}
+
+.newwh1{
+    font-family: a Aksentuasi;
+    font-size: 35px;
+    text-align: center;
+    position: relative;
+    color: rgb(38, 141, 182);
+}
+
+.newwh1:before{
+    content: "";
+    display: block;
+    width: 105px;
+    height: 2px;
+    background: rgba(114, 111, 111, 0.719);
+    top: 20px;
+    left: 0;
+    position: absolute;
+    
+}
+
+.newwh1:after{
+    content: "";
+    display: block;
+    width: 105px;
+    height: 2px;
+    background: rgba(114, 111, 111, 0.719);
+    top: 20px;
+    right: 0;
+    position: absolute;
+}
+
+.sigin{
+    border: solid 1px rgb(75, 71, 71);
+    margin-left: 470px;
+    margin-right: 477px;
+    border-radius: 5px;
+    background-color: rgba(163, 154, 29, 0.692);
+    text-align: center;
+    padding: 5px;
+    font-family: a Aksentuasi;
+    font-size: 25px;
+    box-shadow: 5px 5px 10px rgba(119, 113, 113, 0.651);
+}
+
+.sigin:hover{
+    background-color: rgb(166, 196, 196);
+}
+.sigin a{
+    text-decoration: none;
+    font-weight: 900;
+    color: black;
+}
+
+/*footer starts*/
+
+#div2{
+    background-color: rgb(118, 149, 175);
+    border-radius: 3px;
+    text-align: center;
+    width: 100%;
+    margin-top: 50px;
+    
+}
+
+#fafoot{
+    font-size: 23px;
+    padding: 5px;
+    color: rgb(54, 48, 48);
+}
+/*footer ends*/

@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Checkout {% endblock title %}
+
+{% block styles %}
+{{block.super}}
+<link rel="stylesheet" href="{% static 'css/checkout.css' %}">
+
+{% endblock styles %}
+
+{% block heading %} Checkout {% endblock heading %}
+{% block content %}
+
+<div class="container mt-3">
+        <div class="row">
+            <div class="col-sm-8 p-3 bg-light text-drak">
+                <p class="carthead">Order Summary</p>
+                    {% for c in cart_item %}
+                    <hr>
+                        <div class="card">
+                                <div class="card-body">
+                                        <h6>{{c.product.title|capfirst}}</h6>
+                                        <p>Quantity: {{c.quantity}}</p>
+                                        <p>Price: <b>₹{{c.mrp}}</b> </p>
+                                </div>
+                        </div>
+                        
+                            
+                                            
+    
+                                                
+                        <br>
+                    {% endfor %}
+                    <p> <b>Toatl amount: total cost + delivery charges(₹120): ₹{{total}}</b>  </p>
+                    <div>
+                        
+                        <a href="{%  url 'profileadd'%}" class="btn btn-success shadow px-5 py-2 btn-sm"> Add Your Address </a>
+                    </div>
+            </div>            
+    
+    
+        
+    
+    
+                        
+                        <div class="col-sm-4 bg-light" id="shipdivleft">
+                                <p id="shiphead">Select Shipping Address</p>
+                                <hr>
+                                <form action="{%url 'paymentdone'%}" id="formee">
+                                        {% for a in add %}
+                                                <div class="card">
+                                                        <div class="card-body">
+                                                                <h5>{{a.name}}</h5>
+                                                                <p>Contact Number:{{a.Contact_number}}</p>
+                                                                <p>Address: {{a.locality}},{{a.city}},{{a.state}}-{{a.zipcode}}</p>
+                                                        </div>
+                                                        <div class="form-check mt-2 mb-3">
+                                                                <input class="form-check-input" type="radio" name="custid" id="custadd{{foorloop.counter}}" value="{{a.id}}" style="margin-left:-10px">
+                                                                <label for="" class="form-check-label ">{{forloop.counter}}. {{a.address_type}} address</label>
+                                                        </div>
+                                                        
+                                                </div>
+                                                
+                                        {% endfor %}
+                                        <div class="text-end" style="margin-top: 20px;">
+                                                <div id="paypal-button-container"></div>
+
+                                        </div>
+                                </form>
+    
+                        </div>
+    </div>            
+    </div>
+{% endblock content %}
+
+{% block payment-gateway %}
+
+        <!-- Include the PayPal JavaScript SDK  debit and credit card will not run cause it requires SSL -->
+    <script src="https://www.paypal.com/sdk/js?client-id=AR-FZZ4gr6b2MXNE19RjeR8kVo-9X8PAtddn6j6UBdqRxQxl-apVvKZ7m2JSEXT3CNLbOdkX5A5giE21&currency=USD"></script>
+
+    <script>
+        // Render the PayPal button into #paypal-button-container
+        paypal.Buttons({
+
+            // Set up the transaction
+            createOrder: function(data, actions) {
+                return actions.order.create({
+                    purchase_units: [{
+                        amount: {
+                            value: '{{total}}'
+                        }
+                    }]
+                });
+            },
+
+            // Finalize the transaction
+            onApprove: function(data, actions) {
+                return actions.order.capture().then(function(orderData) {
+                    // Successful capture! For demo purposes:
+                    console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+                    var transaction = orderData.purchase_units[0].payments.captures[0];
+                    alert('Transaction '+ transaction.status + ': ' + transaction.id + '\n\nSee console for all available details');
+                    document.getElementById("formee").submit();
+                    // Replace the above to show a success message within this page, e.g.
+                    // const element = document.getElementById('paypal-button-container');
+                    // element.innerHTML = '';
+                    // element.innerHTML = '<h3>Thank you for your payment!</h3>';
+                    // Or go to another URL:  actions.redirect('thank_you.html');
+                });
+            }
+
+
+        }).render('#paypal-button-container');
+    </script>
+
+{%endblock payment-gateway%}

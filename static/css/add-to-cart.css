@@ -1,0 +1,22 @@
+.carthead{
+    font-family: Matura MT Script Capitals;
+    font-weight: 700;
+    margin-left: 250px;
+    font-size: 30px;
+}
+
+
+.cartimg{
+    height: 200px;
+    width: 180px;
+    border: solid 2px black;
+    border-radius: 5px;
+}
+
+.carthead1{
+    font-family: Matura MT Script Capitals;
+    font-weight: 700;
+    margin-left: 50px;
+    font-size: 20px;
+}
+

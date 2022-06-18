@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Orders Status {% endblock title %}
+
+{% block styles %}
+{{block.super}}
+<link rel="stylesheet" href="{% static 'css/orders.css' %}">
+
+{% endblock styles %}
+
+{% block heading %} Order status {% endblock heading %}
+{% block content %}
+
+<div class="containerr">
+    <div class="row">
+        <div class="col-sm-12 p-3 bg-light text-drak">
+            {%for p in placed%}
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-2 text-light" style="margin-left: 20px;">
+                                <img class="loopimg" src="{{p.product.product_image.url}}" alt="">
+                        </div>
+                        <div class="col-sm-7 looptext">  
+                                <p>Product : <b>{{p.product.title}}</b></p>
+                                <p>Qunatity: <b>{{p.quantity}}</b></p>
+                                <p>Total cost: <b>₹{{p.mrp}}</b> </p>
+                                
+                                
+                        </div>
+                        <div class="col-sm-2">
+                            <p> Order Status : <b>{{p.status}}</b> </p>
+                                {% if p.status == 'Accepted' %}
+                                    <div class="progress">
+                                        <div class="progress-bar bg-primary" role="progressbar" style="width:20%" aria-valuenow="0" aria-valuemax="100">
+                                        </div>                  
+                                    </div>
+                                {%endif%}
+
+                                {% if p.status == 'Packed' %}
+                                    <div class="progress">
+                                        <div class="progress-bar bg-warning" role="progressbar" style="width:40%" aria-valuenow="0" aria-valuemax="100">
+                                        </div>                  
+                                    </div>
+                                {%endif%}
+
+                                {% if p.status == 'On the way' %}
+                                    <div class="progress">
+                                        <div class="progress-bar bg-danger" role="progressbar" style="width:70%" aria-valuenow="0" aria-valuemax="100">
+                                        </div>                  
+                                    </div>
+                                {%endif%}
+
+                                {% if p.status == 'Delivered' %}
+                                    <div class="progress">
+                                        <div class="progress-bar bg-success" role="progressbar" style="width:100%" aria-valuenow="0" aria-valuemax="100">
+                                        </div>                  
+                                    </div>
+                                {%endif%}
+
+                                
+                        </div>
+                    </div>
+
+            {%endfor%}
+        <p class="deliveryy"> <b>{{dliname}}</b>  is assigned as delivery associate for you. <br> Conatct number: <b>{{dlicontact}}</b> </p>
+        
+        </div>            
+                
+</div>
+
+
+{% endblock content %}
